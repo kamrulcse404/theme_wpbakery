@@ -7,7 +7,7 @@ get_header();
 
 ?>
 
-<!-- section 1 -->
+<!-- section 1 done -->
 <section class="welcome">
     <div class="container">
         <h2>Our Latest Blog
@@ -19,7 +19,7 @@ get_header();
 </section>
 
 
-
+<!-- section 2 -->
 <!--====== Start Blog Section ======-->
 <section class="blog-standard-section pt-130 pb-70">
     <div class="container">
@@ -178,7 +178,7 @@ get_header();
 </section>
 <!--====== End Blog Section ======-->
 
-
+<!-- section 3 done -->
 <section class="footer  team">
     <div class="container">
         <div class="call-action footer-sinup" id="contact-form">

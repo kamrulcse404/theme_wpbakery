@@ -4,7 +4,7 @@ get_header();
 
 ?>
 
-
+<!-- single section 1  -->
 <!--====== Start Blog Details section ======-->
 <section class="blog-details-section section-padding">
     <div class="container">
@@ -76,7 +76,7 @@ get_header();
 </section>
 <!--====== End Blog Details section ======-->
 
-
+<!-- single section 2 done  -->
 <section class="footer  team">
     <div class="container">
         <div class="call-action footer-sinup" id="contact-form">

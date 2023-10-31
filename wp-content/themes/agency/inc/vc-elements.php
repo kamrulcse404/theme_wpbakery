@@ -30,8 +30,14 @@ function agency_vc_elements()
     
     //blog
     require_once(__DIR__ . '/shortcodes/blog/blog-section-1.php');
+    // require_once(__DIR__ . '/shortcodes/blog/blog-section-footer-common.php');
 
     // legalese
     require_once(__DIR__ . '/shortcodes/legalese/legalese-section-1.php');
+    require_once(__DIR__ . '/shortcodes/legalese/legalese-section-2.php');
+    
+    //common
+    require_once(__DIR__ . '/shortcodes/common/agency-common.php');
+
 } 
 

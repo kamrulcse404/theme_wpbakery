@@ -8,7 +8,7 @@ get_header();
 ?>
 
 
-<!-- section 1 -->
+<!-- section 1 done -->
 <div class="lagacy section-padding">
 
     <div class="container">
@@ -56,7 +56,7 @@ get_header();
 </div>
 
 
-<!-- section 2 -->
+<!-- section 2 done -->
 <section class="footer  team">
     <div class="container">
         <div class="call-action footer-sinup" id="join">

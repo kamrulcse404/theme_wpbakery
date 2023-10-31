@@ -891,7 +891,7 @@ get_header();
             <div class="coll-content">
                 <h3>Ready to Grow Your Business with Growth Bastards?
                 </h3>
-                <p>Stay connected and we will get back to you. Don’t worry, we are here for your business growth not
+                <p>Stay connected and we will get back to you. Don't worry, we are here for your business growth not
                     to send you spam emails.</p>
                 <p>Signing up for this free newsletter will get you a thought provoking, article 2 or 3 times a month that I am certain will impact your approach to marketing your company. Or your money back.</p>
 
