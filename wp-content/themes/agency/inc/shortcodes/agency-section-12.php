@@ -35,7 +35,40 @@ vc_map(
                         "value" => __("", "growth_agency"),
                     ),
 
+                    array(
+                        'type' => 'param_group',
+                        'param_name' => 'section_12_table_row_description_lists',
+                        'params' => array(
 
+                            array(
+                                "type" => "textfield",
+                                "holder" => "",
+                                "class" => "",
+                                "heading" => __("Section 12 Table Row Description Lists", "growth_agency"),
+                                "param_name" => "section_12_table_description_list",
+                                "value" => __("", "growth_agency"),
+                            ),
+
+                        )
+                    ),
+
+
+                    array(
+                        'type' => 'param_group',
+                        'param_name' => 'section_12_table_row_check_lists',
+                        'params' => array(
+
+                            array(
+                                "type" => "textfield",
+                                "holder" => "",
+                                "class" => "",
+                                "heading" => __("Section 12 Table Row Check Lists", "growth_agency"),
+                                "param_name" => "section_12_table_checklist",
+                                "value" => __("", "growth_agency"),
+                            ),
+
+                        )
+                    ),
 
                 )
             ),
@@ -61,8 +94,6 @@ function agency_section_12_code($atts)
 
 
     $section_12_title = $atts['section_12_title'] ?? '';
-
-
     $section_12_table_rows = vc_param_group_parse_atts($atts['section_12_table_rows']);
 
 
@@ -80,74 +111,114 @@ function agency_section_12_code($atts)
             <div class="step-conatiner">
                 <div class="step-inner">
 
-
                     <?php
-                    if ($section_12_table_rows) {
+                    foreach ($section_12_table_rows as $key => $section_12_table_row) {
+                        $section_12_table_row_title =  $section_12_table_row['section_12_table_row_title'];
 
-
-                        foreach ($section_12_table_rows as $section_12_table_row) {
-                            $section_12_table_row_title =  $section_12_table_row['section_12_table_row_title'];
+                        $len = count($section_12_table_rows);
 
                     ?>
 
 
-                            <div class="step-iteam">
-                                <div class="step-left bule-dark ">
-                                    <p><?php echo  $section_12_table_row_title ?></p>
-                                </div>
-                                <div class="step-right bule-light firstbule-light">
+
+                        <div class="step-iteam">
+                            <div class="step-left <?php if (($key + 1) % 2 == 0) {
+                                                        echo 'red-dark';
+                                                    } elseif (($key + 1) % 2 == 1) {
+                                                        echo 'bule-dark';
+                                                    }
+                                                    ?> 
+                                                                 <?php if ($key == 0) {
+                                                                        echo 'firstbule';
+                                                                    } elseif ($key == $len - 1) {
+                                                                        echo 'seceond-dark';
+                                                                    }
+                                                                    ?> ">
+                                <p><?php echo $section_12_table_row_title; ?></p>
+                            </div>
+                            <div class="step-right 
+                                <?php if (($key + 1) % 2 == 0) {
+                                    echo 'red-light';
+                                } elseif (($key + 1) % 2 == 1) {
+                                    echo 'bule-light';
+                                }
+                                ?>  <?php if ($key == 0) {
+                                        echo 'firstbule-light';
+                                    } elseif ($key == $len - 1) {
+                                        echo 'seceond-light';
+                                    }
+                                    ?> ">
+                                <ul>
+
+                                    <?php
+                                    if (isset($section_12_table_row['section_12_table_row_description_lists'])) {
+
+                                        $section_12_table_row_description_lists = vc_param_group_parse_atts($section_12_table_row['section_12_table_row_description_lists']);
+                                        foreach ($section_12_table_row_description_lists as $section_12_table_description_list) {
+
+                                            $section_12_table_description_list = $section_12_table_description_list['section_12_table_description_list'];
+
+                                    ?>
+
+
+                                            <li><?php echo $section_12_table_description_list; ?></li>
+
+
+
+                                    <?php
+                                        }
+                                    }
+                                    ?>
+
+
+                                    <h5>CHECKLIST:</h5>
+                                </ul>
+                                <div class="list-box">
+
+
+
                                     <ul>
-                                        <li>Audit marketing's revenue contribution potential based on internal unit economics
-                                            and external competitive environment.</li>
-                                        <li>Establish a prioritized roadmap for marketing to execute against and needed
-                                            resources</li>
-                                        <h5>CHECKLIST:</h5>
+
+
+                                        <?php
+                                        if (isset($section_12_table_row['section_12_table_row_check_lists'])) {
+
+                                            $section_12_table_row_check_lists = vc_param_group_parse_atts($section_12_table_row['section_12_table_row_check_lists']);
+                                            foreach ($section_12_table_row_check_lists as $section_12_table_row_check_list) {
+
+                                                $section_12_table_checklist = $section_12_table_row_check_list['section_12_table_checklist'];
+
+                                        ?>
+
+
+                                                <li><?php echo $section_12_table_checklist; ?></li>
+
+
+
+                                        <?php
+                                            }
+                                        }
+                                        ?>
+
                                     </ul>
-                                    <div class="list-box">
-                                        <ul>
-                                            <li>Channel and Campaign Analysisg</li>
-                                            <li>Data-driven Marketing Roadmap</li>
-                                            <li>Trackin</li>
-                                        </ul>
-                                        <ul>
-                                            <li>Recommendations</li>
-                                            <li>Tech Stack Recommendations</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div><!-- step-iteam -->
 
 
-                            <div class="step-iteam">
-                                <div class="step-left red-dark ">
-                                    <p>2. Paid Media (Outbound)</p>
-                                </div>
-                                <div class="step-right red-light ">
-                                    <ul>
-                                        <li>Identify quick wins to scale short-term lead flow and pipeline</li>
-                                        <li>Build long-term demand generation strategy and forecast budget required.</li>
-                                        <li>Train in-house team to manage and optimize campaigns</li>
-                                        <h5>CHECKLIST:</h5>
-                                    </ul>
-                                    <div class="list-box">
-                                        <ul>
-                                            <li>Current Paid Media Analysis</li>
-                                            <li>Paid Media Opportunity Mapping</li>
 
-                                        </ul>
-                                        <ul>
-                                            <li>Quick Wins and Optimizations Roadmap</li>
-                                            <li>Spend Recommendations</li>
-                                        </ul>
-                                    </div>
+                                    <!-- <ul>
+                                        <li>Recommendations</li>
+                                        <li>Tech Stack Recommendations</li>
+                                    </ul> -->
                                 </div>
-                            </div><!-- step-iteam -->
+                            </div>
+                        </div>
+
 
 
                     <?php
-                        }
+
                     }
                     ?>
+
 
 
 

@@ -11,6 +11,8 @@ get_header();
         <div class="row">
             <div class="col-xl-12 ">
                 <div class="blog-details-wrapper wow fadeInUp">
+
+
                     <div class="blog-post-item">
                         <div class="post-thumbnail mb-30">
                             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/standard-2.jpg" alt="">
@@ -63,6 +65,8 @@ get_header();
                                     </div>
                                 </div>
                             </div>
+
+                            
                         </div>
                     </div>
 

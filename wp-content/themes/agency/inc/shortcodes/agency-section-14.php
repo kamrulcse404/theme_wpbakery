@@ -142,6 +142,7 @@ function agency_section_14_code($atts, $content = null)
                                     <?php
                                     if (isset($section_14_module['section_14_module_tags'])) {
                                         $section_14_module_tags = vc_param_group_parse_atts($section_14_module['section_14_module_tags']);
+                                        
                                         foreach ($section_14_module_tags as $section_14_module_tag_list) {
                                             $section_14_module_tag = $section_14_module_tag_list['section_14_module_tag'];
                                             $section_14_icon = $section_14_module_tag_list['section_14_icon'];

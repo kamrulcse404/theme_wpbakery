@@ -25,6 +25,8 @@ get_header();
     <div class="container">
         <div class="row">
             <div class="col-xl-8 col-lg-7">
+
+
                 <div class="blog-standard-wrapper">
                     <div class="blog-standard-post-item mb-60 wow fadeInUp" data-wow-delay=".15s">
                         <div class="post-thumbnail">
@@ -38,10 +40,10 @@ get_header();
 
                                 </ul>
                             </div>
-                            <h3 class="title"><a href="blog-details.html">Powerful Terminal And Command Line Seeny
+                            <h3 class="title"><a href="#">Powerful Terminal And Command Line Seeny
                                     Tools Modern Web Development</a></h3>
                             <p>Sit amet consectetur adipiscing elit sed do eiusmod temp didunt ut labore et dolore magna aliqua suspendisse</p>
-                            <a href="blog-details.html" class="main-btn bordered-btn btn-blue arrow-btn">Read More</a>
+                            <a href="#" class="main-btn bordered-btn btn-blue arrow-btn">Read More</a>
                         </div>
                     </div>
 
@@ -82,6 +84,8 @@ get_header();
                             <a href="blog-details.html" class="main-btn bordered-btn btn-blue arrow-btn">Read More</a>
                         </div>
                     </div>
+
+
                     <div class="blog-standard-post-item mb-60 wow fadeInUp" data-wow-delay=".30s">
                         <div class="post-thumbnail">
                             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/standard-2.jpg" alt="Post Image">
@@ -101,6 +105,8 @@ get_header();
                     </div>
 
                 </div>
+
+                
             </div>
             <div class="col-xl-4 col-lg-5">
                 <div class="sidebar-widget-area">

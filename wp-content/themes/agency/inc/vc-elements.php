@@ -16,7 +16,7 @@ function agency_vc_elements()
     require_once(__DIR__ . '/shortcodes/agency-section-10.php');
     require_once(__DIR__ . '/shortcodes/agency-section-11.php');
 
-    // require_once(__DIR__ . '/shortcodes/agency-section-12.php');
+    require_once(__DIR__ . '/shortcodes/agency-section-12.php');
 
     require_once(__DIR__ . '/shortcodes/agency-section-13.php');
     require_once(__DIR__ . '/shortcodes/agency-section-14.php');
@@ -30,13 +30,13 @@ function agency_vc_elements()
     
     //blog
     require_once(__DIR__ . '/shortcodes/blog/blog-section-1.php');
-    // require_once(__DIR__ . '/shortcodes/blog/blog-section-footer-common.php');
+    require_once(__DIR__ . '/shortcodes/blog/blog-section-2-blogs.php');
 
     // legalese
     require_once(__DIR__ . '/shortcodes/legalese/legalese-section-1.php');
     require_once(__DIR__ . '/shortcodes/legalese/legalese-section-2.php');
     
-    //common
+    //common for every template before footer means last widget
     require_once(__DIR__ . '/shortcodes/common/agency-common.php');
 
 } 

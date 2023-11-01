@@ -375,7 +375,7 @@ get_header();
 
 </section>
 
-<!-- section 12 -->
+<!-- section 12 done -->
 <section class="section-padding the-steps">
     <div class="container">
         <div class="center-section-title">
@@ -884,7 +884,7 @@ get_header();
     </div>
 </section>
 
-<!-- section 17 -->
+<!-- section 17done -->
 <section class="footer  team">
     <div class="container">
         <div class="call-action footer-sinup" id="contact-form">
@@ -952,7 +952,7 @@ get_header();
     </div>
 </section>
 
-<!-- 12 17 -->
+
 
 <?php
 get_footer();
