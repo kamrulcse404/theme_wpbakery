@@ -35,6 +35,11 @@ require_once('lib/framework/ReduxCore/framework.php');
 require_once('lib/framework/sample/config.php');
 
 
+//cmb2
+require_once('metabox/init.php');
+require_once('metabox/functions.php');
+
+
 
 
 

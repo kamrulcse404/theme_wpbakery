@@ -8,15 +8,15 @@ get_header();
 ?>
 
 <!-- section 1 done -->
-<section class="welcome">
+<section class="welcome" style="background: linear-gradient(90deg, rgba(19, 19, 19, 0.501) 0%, rgba(0, 0, 0, 0.7959558823529411) 100%), url('<?php echo get_post_meta(get_the_ID(), 'blog-container-background', true) ?>') bottom center;">
     <div class="container">
-        <h2>Our Latest Blog
-        </h2>
-        <p>We always keep ourselves with the latest trends and manners. See our latest blog to learn more & keep yourself updated.
-
-        </p>
+        <h1><?php echo get_post_meta(get_the_ID(), 'blog-container-title', true) ?></h1>
+        <p><?php echo get_post_meta(get_the_ID(), 'blog-container-desc', true) ?></p>
     </div>
+
+
 </section>
+
 
 
 <!-- section 2 -->
@@ -28,155 +28,174 @@ get_header();
 
 
                 <div class="blog-standard-wrapper">
-                    <div class="blog-standard-post-item mb-60 wow fadeInUp" data-wow-delay=".15s">
-                        <div class="post-thumbnail">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/bg3-672x448.jpg" alt="Post Image">
-                        </div>
-                        <div class="entry-content">
-                            <div class="post-meta">
-                                <ul>
-                                    <li><span><a href="#" class="cat-link">Web Design</a></span></li>
-                                    <li><span><i class="far fa-calendar-alt"></i><a href="#">25 March 2022</a></span></li>
 
-                                </ul>
+                    <?php
+
+                    $blogs = new WP_Query(array(
+                        'post_type' => 'post',
+                        'posts_per_page' => 3,
+                        'paged' => $paged,
+                        'orderby' => 'date',
+                        'order' => 'DESC',
+                    ));
+
+
+
+                    while ($blogs->have_posts()) {
+                        $blogs->the_post();
+                    ?>
+
+                        <div class="blog-standard-post-item mb-60 wow fadeInUp" data-wow-delay=".15s">
+                            <div class="post-thumbnail">
+                                <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="Post Image">
                             </div>
-                            <h3 class="title"><a href="#">Powerful Terminal And Command Line Seeny
-                                    Tools Modern Web Development</a></h3>
-                            <p>Sit amet consectetur adipiscing elit sed do eiusmod temp didunt ut labore et dolore magna aliqua suspendisse</p>
-                            <a href="#" class="main-btn bordered-btn btn-blue arrow-btn">Read More</a>
-                        </div>
-                    </div>
+                            <div class="entry-content">
+                                <div class="post-meta">
+                                    <ul>
+                                        <?php
+                                        $tags = get_the_tags(); // Get the post's tags
+                                        if ($tags) {
+                                            foreach ($tags as $tag) {
+                                                echo '<li><span><a href="' . esc_url(get_tag_link($tag)) . '" class="tag-link">' . esc_html($tag->name) . '</a></span></li>';
+                                            }
+                                        }
+                                        ?>
 
-                    <div class="blog-standard-post-item mb-60 wow fadeInUp" data-wow-delay=".20s">
-                        <div class="post-thumbnail">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/blog.png" alt="Post Image">
-                        </div>
-                        <div class="entry-content">
-                            <div class="post-meta">
-                                <ul>
-                                    <li><span><a href="#" class="cat-link">Web Design</a></span></li>
-                                    <li><span><i class="far fa-calendar-alt"></i><a href="#">25 March 2022</a></span></li>
 
-                                </ul>
+                                        <li><span><i class="far fa-calendar-alt"></i><a href="#"><?php echo get_the_date(); ?></a></span></li>
+
+
+                                    </ul>
+                                </div>
+                                <h3 class="title"><a href<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+                                <p><?php the_excerpt(); ?></p>
+                                <a href="<?php the_permalink(); ?>" class="main-btn bordered-btn btn-blue arrow-btn">Read More</a>
                             </div>
-                            <h3 class="title"><a href="blog-details.html">Everything You Want To Know About Creating Voice User Interfaces Powerful Terminal</a></h3>
-                            <p>Sit amet consectetur adipiscing elit sed do eiusmod temp didunt ut labore et dolore magna aliqua suspendisse</p>
-                            <a href="blog-details.html" class="main-btn bordered-btn btn-blue arrow-btn">Read More</a>
                         </div>
-                    </div>
-
-                    <div class="blog-standard-post-item post-without-thumbnail mb-60 wow fadeInUp" data-wow-delay=".25s">
-                        <div class="post-thumbnail">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/standard-3.jpg" alt="Post Image">
-                        </div>
-                        <div class="entry-content">
-                            <div class="post-meta">
-                                <ul>
-                                    <li><span><a href="#" class="cat-link">Web Design</a></span></li>
-                                    <li><span><i class="far fa-calendar-alt"></i><a href="#">25 March 2022</a></span></li>
-
-                                </ul>
-                            </div>
-                            <h3 class="title"><a href="blog-details.html">Designing Better Link Websites And Emails Guideline
-                                    Everything You Want To Know Creating Voice</a></h3>
-                            <p>On the other hand, we denounce with righteous indignation and dislike men aresc
-                                beguiled and demoralized by the charms of pleasure of the moment</p>
-                            <a href="blog-details.html" class="main-btn bordered-btn btn-blue arrow-btn">Read More</a>
-                        </div>
-                    </div>
 
 
-                    <div class="blog-standard-post-item mb-60 wow fadeInUp" data-wow-delay=".30s">
-                        <div class="post-thumbnail">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/standard-2.jpg" alt="Post Image">
-                        </div>
-                        <div class="entry-content">
-                            <div class="post-meta">
-                                <ul>
-                                    <li><span><a href="#" class="cat-link">Web Design</a></span></li>
-                                    <li><span><i class="far fa-calendar-alt"></i><a href="#">25 March 2022</a></span></li>
+                    <?php
 
-                                </ul>
-                            </div>
-                            <h3 class="title"><a href="blog-details.html">Everything You Want To Know About Creating Voice User Interfaces Powerful Terminal</a></h3>
-                            <p>Sit amet consectetur adipiscing elit sed do eiusmod temp didunt ut labore et dolore magna aliqua suspendisse</p>
-                            <a href="blog-details.html" class="main-btn bordered-btn btn-blue">Read More</a>
-                        </div>
-                    </div>
+                    }
+                    wp_reset_postdata()
+
+                    ?>
+
+
 
                 </div>
 
-                
+
             </div>
             <div class="col-xl-4 col-lg-5">
                 <div class="sidebar-widget-area">
+
                     <div class="widget search-widget mb-30 wow fadeInUp">
+
+
                         <form>
                             <div class="form_group">
                                 <input type="email" class="form_control" placeholder="Search here" name="email" required>
                                 <button class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
                             </div>
                         </form>
+
+                        <?php
+                        // echo get_search_form();
+                        ?>
                     </div>
+
+
                     <div class="widget category-widget mb-30 wow fadeInUp">
                         <h4 class="widget-title">Category</h4>
+
+
                         <ul class="category-nav">
-                            <li><a href="#">Organic Vegetables<span><i class="fa-solid fa-arrow-right"></i></span></a></li>
-                            <li><a href="#">Fresh Jack Fruits<span><i class="fa-solid fa-arrow-right"></i></span></a></li>
-                            <li><a href="#">Chicken Meat & Eggs<span><i class="fa-solid fa-arrow-right"></i></span></a></li>
-                            <li><a href="#">Organic Wheats<span><i class="fa-solid fa-arrow-right"></i></span></a></li>
-                            <li><a href="#">Cow Meat & Milk<span><i class="fa-solid fa-arrow-right"></i></span></a></li>
+                            <?php
+                            // Get the categories
+                            $categories = get_categories();
+
+                            // Loop through the categories and generate list items
+                            foreach ($categories as $category) {
+                                $category_link = get_category_link($category->term_id);
+                            ?>
+                                <li><a href="<?php echo esc_url($category_link); ?>"><?php echo esc_html($category->name); ?><span><i class="fa-solid fa-arrow-right"></i></span></a></li>
+                            <?php
+                            }
+                            ?>
                         </ul>
                     </div>
+
+
                     <div class="widget contact-info-widget bg_cover mb-30 wow fadeInUp" style="background-image: url(assets/images/widget/contact-1.jpg);">
                         <div class="contact-info-box text-center">
                             <div class="icon">
                                 <i class="fa-solid fa-phone"></i>
                             </div>
                             <div class="info">
-                                <h4><a href="tel:+01234567899">+0123 (456) 7899</a></h4>
-                                <h5><a href="mailto:support@gmail.com">support@gmail.com</a></h5>
+
+                                <h4><a href="tel:<?php echo get_post_meta(get_the_ID(), 'blog-contact-number', true) ?>"><?php echo get_post_meta(get_the_ID(), 'blog-contact-number', true) ?></a></h4>
+
+                                <h5><a href="mailto:<?php echo get_post_meta(get_the_ID(), 'blog-contact-email', true) ?>"><?php echo get_post_meta(get_the_ID(), 'blog-contact-email', true) ?></a></h5>
 
                             </div>
                         </div>
                     </div>
+
+
                     <div class="widget recent-post-widget mb-30 wow fadeInUp">
                         <h4 class="widget-title">Recent News</h4>
                         <ul class="recent-post-list">
-                            <li class="post-thumbnail-content">
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/news-1.jpg" alt="post image">
-                                <div class="post-title-date">
-                                    <h6><a href="blog-details.html">Guide Modern CSS Colors HWB, LAB</a></h6>
-                                    <span class="posted-on">By <a href="#">Somalia D. Silba</a></span>
-                                </div>
-                            </li>
-                            <li class="post-thumbnail-content">
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/news-2.jpg" alt="post image">
-                                <div class="post-title-date">
-                                    <h6><a href="blog-details.html">Guide Modern CSS Colors HWB, LAB</a></h6>
-                                    <span class="posted-on">By <a href="#">Somalia D. Silba</a></span>
-                                </div>
-                            </li>
-                            <li class="post-thumbnail-content">
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/news-3.jpg" alt="post image">
-                                <div class="post-title-date">
-                                    <h6><a href="blog-details.html">Guide Modern CSS Colors HWB, LAB</a></h6>
-                                    <span class="posted-on">By <a href="#">Somalia D. Silba</a></span>
-                                </div>
-                            </li>
+
+                            <?php
+                            $blogs = new WP_Query(array(
+                                'post_type' => 'post',
+                                'posts_per_page' => 3,
+                                'paged' => $paged,
+                                'orderby' => 'date',
+                                'order' => 'DESC',
+                            ));
+
+                            while ($blogs->have_posts()) {
+                                $blogs->the_post(); ?>
+
+                                <li class="post-thumbnail-content">
+                                    <img src="<?php the_post_thumbnail_url(); ?>" alt="post image">
+                                    <div class="post-title-date">
+                                        <h6><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h6>
+                                        <span class="posted-on">By <a href="#"><?php the_author(); ?></a></span>
+                                    </div>
+                                </li>
+
+                            <?php
+                            }
+
+                            wp_reset_postdata();
+                            ?>
+
+
+
                         </ul>
                     </div>
+
+
                     <div class="widget tag-cloud-widget mb-30 wow fadeInUp">
                         <h4 class="widget-title">Popular Tags</h4>
+
                         <div class="tag-list">
-                            <a href="#">3D Creative</a>
-                            <a href="#">Agency</a>
-                            <a href="#">Digital</a>
-                            <a href="#">Web Design</a>
-                            <a href="#">Strategy</a>
-                            <a href="#">UX/UI</a>
+                            <?php
+                            $tags = get_tags(); // Retrieve the list of tags
+
+                            foreach ($tags as $tag) {
+                                echo '<a href="' . get_tag_link($tag) . '">' . $tag->name . '</a>';
+                            }
+                            ?>
                         </div>
+
+
                     </div>
+
+
                 </div>
             </div>
         </div>
@@ -184,67 +203,7 @@ get_header();
 </section>
 <!--====== End Blog Section ======-->
 
-<!-- section 3 done -->
-<section class="footer  team">
-    <div class="container">
-        <div class="call-action footer-sinup" id="contact-form">
-            <div class="coll-content">
-                <h3>Ready to Grow Your Business with Growth Bastards?
-                </h3>
-                <p>Stay connected and we will get back to you. Don’t worry, we are here for your business growth not to send you spam emails.</p>
 
-                <form id="myForm" method="post">
-                    <input type="email" name="EMAIL" class="required email" id="mce-EMAIL" required="" value="" placeholder="Enter your email" required>
-                    <span><input type="submit" name="subscribe" id="mc-embedded-subscribe" class="button" value="Subscribe"></span>
-                </form>
-
-                <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-                <script type="text/javascript">
-                    document.getElementById('myForm').addEventListener('submit', function(e) {
-                        e.preventDefault();
-
-                        var email = document.getElementById('mce-EMAIL').value;
-
-                        // Create a unique callback function name
-                        var callbackName = 'jsonp_callback_' + Math.round(100000 * Math.random());
-
-                        // Define the callback function
-                        window[callbackName] = function(response) {
-                            if (response.result === 'success') {
-                                swal("Good job!", "You are subscribed!", "success");
-                            } else {
-                                swal("Oops!", "Something went wrong!", "error");
-                            }
-
-                            // Clean up the callback function
-                            delete window[callbackName];
-                        };
-
-                        // Replace with your Mailchimp URL and append the callback function name
-                        var mailchimpUrl = 'https://startupecology.us14.list-manage.com/subscribe/post-json?u=89fd2f33d62af8ac28515df07&id=8d30b461a0&EMAIL=' + encodeURIComponent(email) + '&c=' + callbackName;
-
-                        // Use JSONP to submit the form data
-                        var script = document.createElement('script');
-                        script.src = mailchimpUrl;
-                        document.body.appendChild(script);
-                        script.onload = function() {
-                            // Remove the script element after the form is submitted
-                            document.body.removeChild(script);
-                        };
-                    });
-                </script>
-
-            </div>
-        </div>
-        <div class="fotter-logo">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/footer-logo.png" alt="">
-            <ul>
-
-                <li><a href="https://www.linkedin.com/company/growth-bastards/"><i class="fa-brands fa-linkedin-in"></i></a></li>
-            </ul>
-        </div>
-    </div>
-</section>
 
 
 <?php

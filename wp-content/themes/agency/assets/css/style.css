@@ -630,7 +630,7 @@ p{
 .welcome{
 	text-align: center;
 	width: 100%;
-	background:linear-gradient(90deg, rgba(19, 19, 19, 0.501) 0%, rgba(0,0,0,0.7959558823529411) 100%), url(../images/blog-header.jfif) bottom center;
+	/* background:linear-gradient(90deg, rgba(19, 19, 19, 0.501) 0%, rgba(0,0,0,0.7959558823529411) 100%), url(../images/blog-header.jfif) bottom center; */
 	background-size: cover;
 	color: #fff;
 	padding: 200px 0 150px;
