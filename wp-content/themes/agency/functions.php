@@ -40,7 +40,20 @@ require_once('metabox/init.php');
 require_once('metabox/functions.php');
 
 
+function add_svg_to_upload_mimes($mimes)
+{
+    $mimes['svg'] = 'image/svg+xml';
+    return $mimes;
+}
+add_filter('upload_mimes', 'add_svg_to_upload_mimes');
 
-
-
-
+function fix_svg_thumb_display()
+{
+    echo '<style type="text/css">
+        .attachment-266x266, .thumbnail img {
+            width: 100% !important;
+            height: auto !important;
+        }
+    </style>';
+}
+add_action('admin_head', 'fix_svg_thumb_display');

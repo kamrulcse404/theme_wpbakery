@@ -85,6 +85,8 @@ function agency_section_10_code($atts)
         'section_10_image' => '',
         'section_10_button_text' => '',
 
+        'section_10_sub_title' => '',
+
         'section_10_content' => ''
 
     ), $atts, 'agency_section_10');

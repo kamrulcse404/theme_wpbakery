@@ -885,7 +885,7 @@ get_header();
 </section>
 
 <!-- section 17done -->
-<section class="footer  team">
+<!-- <section class="footer  team">
     <div class="container">
         <div class="call-action footer-sinup" id="contact-form">
             <div class="coll-content">
@@ -950,7 +950,7 @@ get_header();
             </ul>
         </div>
     </div>
-</section>
+</section> -->
 
 
 

@@ -11,7 +11,14 @@ vc_map(
         "category" => __('Agencty Growth Theme', 'growth_agency'),
         'params' => array(
 
-
+            array(
+                "type" => "attach_image",
+                "holder" => "",
+                "class" => "",
+                "heading" => __("Section 14 Recomended Image", "growth_agency"),
+                "param_name" => "section_14_recomended_image",
+                "value" => __("", "growth_agency"),
+            ),
 
 
             array(
@@ -59,6 +66,7 @@ vc_map(
                         "param_name" => "section_14_module_duration",
                         "value" => __("", "growth_agency"),
                     ),
+
 
 
                     array(
@@ -109,11 +117,16 @@ function agency_section_14_code($atts, $content = null)
         'section_14_title' => '',
         'section_14_content' => '',
         'section_14_modules' => '',
+        'section_14_recomended_image' => '',
     ), $atts, 'agency_section_14');
 
     $section_14_title = $atts['section_14_title'] ?? '';
     $section_14_content = $atts['section_14_content'] ?? '';
     $section_14_modules = vc_param_group_parse_atts($atts['section_14_modules']);
+
+
+    $section_14_recomended_image = $atts['section_14_recomended_image'] ?? '';
+    $section_14_recomended_image_url = wp_get_attachment_image_url($section_14_recomended_image, 'full');
 
     // Start rendering the section
 ?>
@@ -130,19 +143,26 @@ function agency_section_14_code($atts, $content = null)
             <div class="row">
                 <?php
                 if ($section_14_modules) {
+
+                    // $ln = count($section_14_modules);
+
                     foreach ($section_14_modules as $section_14_module) {
                         $section_14_module_price = $section_14_module['section_14_module_price'];
                         $section_14_module_duration = $section_14_module['section_14_module_duration'];
                 ?>
                         <div class="col-lg-4 col-md-6 col-sm-12">
-                            <div class="price-box">
+                            <div class="price-box <?php if ($section_14_module == $section_14_modules[count($section_14_modules) - 1]) {
+                                                        echo "different-box";
+                                                    } ?>">
                                 <h3><?php echo $section_14_module_price; ?>/</h3>
                                 <p><?php echo $section_14_module_duration; ?></p>
                                 <ul>
                                     <?php
                                     if (isset($section_14_module['section_14_module_tags'])) {
                                         $section_14_module_tags = vc_param_group_parse_atts($section_14_module['section_14_module_tags']);
-                                        
+
+
+
                                         foreach ($section_14_module_tags as $section_14_module_tag_list) {
                                             $section_14_module_tag = $section_14_module_tag_list['section_14_module_tag'];
                                             $section_14_icon = $section_14_module_tag_list['section_14_icon'];
@@ -154,6 +174,16 @@ function agency_section_14_code($atts, $content = null)
                                     }
                                     ?>
                                 </ul>
+
+                                <?php if ($section_14_module == $section_14_modules[count($section_14_modules) - 1]) { ?>
+
+                                    <div class="recomended-img">
+                                        <img src="<?php echo $section_14_recomended_image_url ?>" alt="">
+                                    </div>
+
+                                <?php } ?>
+
+
                             </div>
                         </div>
                 <?php

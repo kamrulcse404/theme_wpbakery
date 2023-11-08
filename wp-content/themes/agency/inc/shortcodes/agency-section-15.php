@@ -76,6 +76,8 @@ function agency_section_15_code($atts)
         'section_15_title' => '',
         // 'section_11_sub_title' => '',
         'section_15_content' => '',
+        'section_15_short_text' => '',
+        'section_15_content' => '',
         'section_15_button_text' => '',
         // 'section_11_title' => '',
 

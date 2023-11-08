@@ -70,6 +70,23 @@ vc_map(
                         )
                     ),
 
+                    array(
+                        'type' => 'param_group',
+                        'param_name' => 'section_12_table_row_check_lists_right',
+                        'params' => array(
+
+                            array(
+                                "type" => "textfield",
+                                "holder" => "",
+                                "class" => "",
+                                "heading" => __("Section 12 Table Row Check Lists Right", "growth_agency"),
+                                "param_name" => "section_12_table_checklist_right",
+                                "value" => __("", "growth_agency"),
+                            ),
+
+                        )
+                    ),
+
                 )
             ),
 

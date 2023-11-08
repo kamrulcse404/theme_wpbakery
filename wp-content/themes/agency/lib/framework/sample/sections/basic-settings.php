@@ -50,7 +50,7 @@ Redux::setSection($opt_name, array(
 
         array(
             'id' => 'footer-common-short-text',
-            'type' => 'textarea',
+            'type' => 'editor',
             'title' => __('Footer Short Text', 'growth_agency'),
             'default' => 'Stay connected and we will get back to you. Dont worry, we are here for your business growth not to send you spam emails.',
         ),
