@@ -87,7 +87,37 @@ vc_map(
                         )
                     ),
 
-                )
+                    // Landing Page & Optimizations Roadmap
+                    array(
+                        "type" => "textfield",
+                        "holder" => "",
+                        "class" => "",
+                        "heading" => __("Section 12 Row Sub Title", "growth_agency"),
+                        "param_name" => "section_12_row_sub_title",
+                        "value" => __("", "growth_agency"),
+                    ),
+
+
+                    array(
+                        'type' => 'param_group',
+                        'param_name' => 'section_12_table_row_desc_after_lists',
+                        'params' => array(
+
+                            array(
+                                "type" => "textfield",
+                                "holder" => "",
+                                "class" => "",
+                                "heading" => __("Section 12 Table Row Description After List", "growth_agency"),
+                                "param_name" => "section_12_table_row_desc_after_check_list",
+                                "value" => __("", "growth_agency"),
+                            ),
+
+                        )
+                    ),
+
+                ),
+
+
             ),
 
         )
@@ -130,9 +160,9 @@ function agency_section_12_code($atts)
 
                     <?php
                     foreach ($section_12_table_rows as $key => $section_12_table_row) {
-                        $section_12_table_row_title =  $section_12_table_row['section_12_table_row_title'];
 
                         $len = count($section_12_table_rows);
+                        $section_12_table_row_title =  $section_12_table_row['section_12_table_row_title'] ?? '';
 
                     ?>
 
@@ -167,19 +197,29 @@ function agency_section_12_code($atts)
                                     ?> ">
                                 <ul>
 
+
+
+
+
+
+
                                     <?php
+
+
                                     if (isset($section_12_table_row['section_12_table_row_description_lists'])) {
 
                                         $section_12_table_row_description_lists = vc_param_group_parse_atts($section_12_table_row['section_12_table_row_description_lists']);
+
                                         foreach ($section_12_table_row_description_lists as $section_12_table_description_list) {
 
-                                            $section_12_table_description_list = $section_12_table_description_list['section_12_table_description_list'];
+                                            $section_12_table_description_list = $section_12_table_description_list['section_12_table_description_list'] ?? '';
 
                                     ?>
+                                            <?php if (!empty($section_12_table_description_list)) { ?>
 
+                                                <li><?php echo $section_12_table_description_list; ?></li>
 
-                                            <li><?php echo $section_12_table_description_list; ?></li>
-
+                                            <?php } ?>
 
 
                                     <?php
@@ -188,7 +228,32 @@ function agency_section_12_code($atts)
                                     ?>
 
 
-                                    <h5>CHECKLIST:</h5>
+                                    <?php
+
+                                    $section_12_table_row_check_lists = vc_param_group_parse_atts($section_12_table_row['section_12_table_row_check_lists']);
+
+                                    // print_r($section_12_table_row_check_lists);
+
+
+
+                                    if (count($section_12_table_row_check_lists) != 0) {
+                                        // echo "yes";
+                                    ?>
+
+                                        <h5>CHECKLIST:</h5>
+
+                                    <?php
+                                    }
+                                    else{
+                                        // echo "no";
+                                    }
+                                    ?>
+
+
+
+
+
+
                                 </ul>
                                 <div class="list-box">
 
@@ -201,16 +266,50 @@ function agency_section_12_code($atts)
                                         if (isset($section_12_table_row['section_12_table_row_check_lists'])) {
 
                                             $section_12_table_row_check_lists = vc_param_group_parse_atts($section_12_table_row['section_12_table_row_check_lists']);
+
+
+
                                             foreach ($section_12_table_row_check_lists as $section_12_table_row_check_list) {
 
-                                                $section_12_table_checklist = $section_12_table_row_check_list['section_12_table_checklist'];
+                                                $section_12_table_checklist = $section_12_table_row_check_list['section_12_table_checklist'] ?? '';
+
+                                                // print_r($section_12_table_checklist);
 
                                         ?>
 
+                                                <?php if (!empty($section_12_table_checklist)) { ?>
 
-                                                <li><?php echo $section_12_table_checklist; ?></li>
+                                                    <li><?php echo $section_12_table_checklist; ?></li>
+                                                <?php } ?>
 
 
+                                        <?php
+                                            }
+                                        }
+                                        ?>
+
+                                    </ul>
+
+                                    <ul>
+
+
+                                        <?php
+                                        if (!empty($section_12_table_row['section_12_table_row_check_lists_right'])) {
+
+                                            $section_12_table_row_check_lists_right = vc_param_group_parse_atts($section_12_table_row['section_12_table_row_check_lists_right']);
+
+
+                                            foreach ($section_12_table_row_check_lists_right as $section_12_table_row_check_list_right) {
+
+                                                $section_12_table_checklist_right = $section_12_table_row_check_list_right['section_12_table_checklist_right'] ?? '';
+
+                                        ?>
+
+                                                <?php if (!empty($section_12_table_checklist_right)) { ?>
+
+                                                    <li><?php echo $section_12_table_checklist_right; ?></li>
+
+                                                <?php } ?>
 
                                         <?php
                                             }
@@ -221,11 +320,69 @@ function agency_section_12_code($atts)
 
 
 
-                                    <!-- <ul>
-                                        <li>Recommendations</li>
-                                        <li>Tech Stack Recommendations</li>
-                                    </ul> -->
+
+
+
                                 </div>
+
+                                <!-- sub title  -->
+                                <?php
+
+                                if (!empty($section_12_table_row['section_12_row_sub_title'])) {
+                                    $section_12_row_sub_title =  $atts['section_12_title'] ?? '';
+                                    if (!empty($section_12_row_sub_title)) {
+
+                                ?>
+
+                                        <h5>
+                                            <?php echo $section_12_row_sub_title ?>
+
+                                        </h5>
+
+                                <?php
+                                    }
+                                }
+                                ?>
+
+
+                                <!-- after lists  -->
+
+                                <ul>
+
+
+                                    <?php
+
+
+                                    if (isset($section_12_table_row['section_12_table_row_desc_after_lists'])) {
+
+                                        $section_12_table_row_desc_after_lists = vc_param_group_parse_atts($section_12_table_row['section_12_table_row_desc_after_lists']);
+
+                                        foreach ($section_12_table_row_desc_after_lists as $section_12_table_row_desc_after_list) {
+
+                                            $section_12_table_row_desc_after_check_list = $section_12_table_row_desc_after_list['section_12_table_row_desc_after_check_list'] ?? '';
+
+                                    ?>
+                                            <?php if (!empty($section_12_table_row_desc_after_check_list)) { ?>
+
+                                                <li><?php echo $section_12_table_row_desc_after_check_list; ?></li>
+
+                                            <?php } ?>
+
+
+                                    <?php
+                                        }
+                                    }
+                                    ?>
+
+
+                                </ul>
+
+
+
+
+
+
+
                             </div>
                         </div>
 
