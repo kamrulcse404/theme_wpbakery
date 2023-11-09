@@ -230,23 +230,21 @@ function agency_section_12_code($atts)
 
                                     <?php
 
-                                    $section_12_table_row_check_lists = vc_param_group_parse_atts($section_12_table_row['section_12_table_row_check_lists']);
 
-                                    // print_r($section_12_table_row_check_lists);
+                                    if (isset($section_12_table_row['section_12_table_row_check_lists'])) {
 
+                                        $section_12_table_row_check_lists = vc_param_group_parse_atts($section_12_table_row['section_12_table_row_check_lists']);
 
+                                        if (isset($section_12_table_row_check_lists['section_12_table_checklist'])) {
 
-                                    if (count($section_12_table_row_check_lists) != 0) {
-                                        // echo "yes";
                                     ?>
 
-                                        <h5>CHECKLIST:</h5>
+                                            <h5>CHECKLIST:</h5>
 
                                     <?php
+                                        }
                                     }
-                                    else{
-                                        // echo "no";
-                                    }
+
                                     ?>
 
 
