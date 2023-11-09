@@ -6,8 +6,13 @@
                 <h3><?php global $growth_agency;
                     echo $growth_agency['footer-common-title'] ?>
                 </h3>
-                <p><?php global $growth_agency;
-                    echo $growth_agency['footer-common-short-text'] ?></p>
+                <p>
+                    <?php
+                    global $growth_agency;
+                    echo is_front_page() ? $growth_agency['footer-common-short-text-index'] : $growth_agency['footer-common-short-text-blog'];
+                    ?>
+
+                </p>
 
                 <!-- <form id="myForm" method="post">
                     <input type="email" name="EMAIL" class="required email" id="mce-EMAIL" required="" value="" placeholder="Enter your email" required>

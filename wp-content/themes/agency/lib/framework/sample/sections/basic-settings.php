@@ -44,14 +44,22 @@ Redux::setSection($opt_name, array(
         array(
             'id' => 'footer-common-title',
             'type' => 'text',
-            'title' => __('Footer Title', 'growth_agency'),
+            'title' => __('Footer Title For Index', 'growth_agency'),
             'default' => 'Ready to Grow Your Business with Growth Bastards?',
         ),
 
         array(
-            'id' => 'footer-common-short-text',
+            'id' => 'footer-common-short-text-index',
             'type' => 'editor',
-            'title' => __('Footer Short Text', 'growth_agency'),
+            'title' => __('Footer Short Text For Index', 'growth_agency'),
+            'default' => 'Stay connected and we will get back to you. Dont worry, we are here for your business growth not to send you spam emails.',
+        ),
+
+
+        array(
+            'id' => 'footer-common-short-text-blog',
+            'type' => 'editor',
+            'title' => __('Footer Short Text For Blog', 'growth_agency'),
             'default' => 'Stay connected and we will get back to you. Dont worry, we are here for your business growth not to send you spam emails.',
         ),
 
