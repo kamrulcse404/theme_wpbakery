@@ -21,14 +21,7 @@ get_header();
                         <div class="entry-content">
                             <div class="post-meta">
                                 <ul>
-                                    <?php
-                                    $tags = get_the_tags(); // Get the post's tags
-                                    if ($tags) {
-                                        foreach ($tags as $tag) {
-                                            echo '<li><span><a href="' . esc_url(get_tag_link($tag)) . '" class="tag-link">' . esc_html($tag->name) . '</a></span></li>';
-                                        }
-                                    }
-                                    ?>
+                                   
 
 
                                     <li><span><i class="far fa-calendar-alt"></i><a href="#"><?php echo get_the_date(); ?></a></span></li>
