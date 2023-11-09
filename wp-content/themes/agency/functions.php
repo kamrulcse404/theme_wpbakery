@@ -63,3 +63,9 @@ add_action('admin_head', 'fix_svg_thumb_display');
 // menu design custom 
 
 
+function add_nav_link_class($atts, $item, $args) {
+    $atts['class'] = 'nav-link';
+    return $atts;
+}
+
+add_filter('nav_menu_link_attributes', 'add_nav_link_class', 10, 3);
