@@ -57,3 +57,9 @@ function fix_svg_thumb_display()
     </style>';
 }
 add_action('admin_head', 'fix_svg_thumb_display');
+
+
+
+// menu design custom 
+
+

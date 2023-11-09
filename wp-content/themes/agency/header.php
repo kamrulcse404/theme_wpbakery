@@ -51,15 +51,9 @@
                     'theme_location' => 'header_menu',
                     'container' => 'ul',
                     'menu_class' => 'navbar-nav mr-auto',
+                    'link_before' => '<a class="nav-link">',
+                    'link_after' => '</a>',
                 ));
-
-                // wp_nav_menu(array(
-                //     'theme_location' => 'header_menu',
-                //     'container'      => 'ul',
-                //     'menu_class'     => 'navbar-nav mr-auto',
-                //     'items_wrap'     => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-                // ));
-
 
                 ?>
 
