@@ -93,15 +93,15 @@ get_header();
                     <div class="widget search-widget mb-30 wow fadeInUp">
 
 
-                        <form>
+                        <!-- <form>
                             <div class="form_group">
                                 <input type="email" class="form_control" placeholder="Search here" name="email" required>
                                 <button class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
                             </div>
-                        </form>
+                        </form> -->
 
                         <?php
-                        // echo get_search_form();
+                        echo get_search_form();
                         ?>
                     </div>
 

@@ -69,3 +69,17 @@ function add_nav_link_class($atts, $item, $args) {
 }
 
 add_filter('nav_menu_link_attributes', 'add_nav_link_class', 10, 3);
+
+
+function custom_search_form($form) {
+    $form = '<form role="search" method="get" class="search-form" action="' . esc_url(home_url('/')) . '">
+                <div class="form_group">
+                    <input type="search" class="form_control" placeholder="' . esc_attr_x('Search here', 'placeholder', 'growth_agency') . '" value="' . get_search_query() . '" name="s" required>
+                    <button type="submit" class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+            </form>';
+
+    return $form;
+}
+
+add_filter('get_search_form', 'custom_search_form');

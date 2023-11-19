@@ -30,17 +30,7 @@ get_header();
                             </div>
                             <h3 class="title"><?php echo get_the_title(); ?></h3>
                             <p> <?php echo the_content(); ?></p>
-                            <!-- <div class="content-img">
-                                <img src="<?php //echo get_template_directory_uri(); 
-                                            ?>/assets/images/standard-3.jpg" alt="">
-                            </div>
-                            <h4>Designing Better Links For Websites And Emails Guideline Useful VS Code Extensions For Front-End Developers</h4>
-                            <p>Nemo enim ipsam voluptatem quia voluptas sit aspernate odit aut fugit quia coquuntur magni dolores eosqui ratione voluptatem nesciunt eque porro quisquam est qui dolorem epsum quia dolor sit amet, consectetur adipise velit sed quia non numquam</p>
-                            <ul class="list-style-one mb-45">
-                                <li>Digital Creative Agency</li>
-                                <li>Professional Problem Solutions</li>
-                                <li>Web Design & Development</li>
-                            </ul> -->
+                          
 
                             <div class="post-share-tag mb-30">
                                 <div class="row">
